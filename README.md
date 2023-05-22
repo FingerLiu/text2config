@@ -4,7 +4,6 @@ Relieve you from the burden of remembering configuration and commands.
 
 # Install
 ## from pypi 
-**not supported yet,due to pypi server closed package uploading**
 ```bash
 # pip install text2config
 ```
@@ -54,12 +53,13 @@ options:
 
 ```
 # Features
-- [*] text to docker command
-- [*] text to k8s command
-- [] text to k8s yaml
-- [] text to nginx conf
-- [] text to any command/config with predefined prompt template.
-- [] text to custom command/config with user provide prompt template
+- ✅ text to docker command
+- ✅ text to k8s command
+-  text to k8s yaml
+-  text to nginx conf
+-  chain command to other commands
+-  text to any command/config with predefined prompt template.
+-  text to custom command/config with user provide prompt template
 ## text to docker command
 ```bash
 t2c docker "run image nginx and export port 80 to local port 8080"
