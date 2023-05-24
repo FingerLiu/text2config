@@ -12,7 +12,7 @@ Example: t2c k8s "get all pod in namespace kube-system and sort by create time"
                                  formatter_class=RawTextHelpFormatter)
 parser.add_argument("-m", "--mode", type=str, choices=["cmd", "config"],
                     default="cmd", help="generate command or config")
-parser.add_argument("command", type=str, choices=["docker", "k8s", "kubernetes", "kubectl", "nginx"], default="kubectl", help="command name")
+parser.add_argument("command", type=str, choices=["docker", "k8s", "kubernetes", "kubectl", "nginx","cli"], default="kubectl", help="command name")
 parser.add_argument("goal", type=str, help="goal of the command or config that you want to generate")
 parser.add_argument("-c", "--config")
 parser.add_argument("-d", "--debug", action="store_true", default=False, help="show debug log")
@@ -34,7 +34,7 @@ def parse_args():
         prompt = promptTemplate.format(goal=goal)
         if args.debug:
             print(prompt)
-        print(quest(prompt))
+        print(f'{quest(prompt)}\n')
 
 
 
