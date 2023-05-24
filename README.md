@@ -23,6 +23,9 @@ export OPENAI_TEMPERATURE="0"
 t2c k8s "get all pod in namespace kube-system and sort by create time"
 
 t2c docker "run image nginx:latest and mount ~/nginx.conf to /etc/nginx.conf, and also expose 80 to local 8080, remove it after stop"
+
+t2c cli "list all flies"
+
 ```
 
 ## Tips for Chinese users
@@ -40,7 +43,7 @@ or command of various projects(docker/kubernetes/vim/nginx/postgres/terraform).
 Example: t2c k8s "get all pod in namespace kube-system and sort by create time"
 
 positional arguments:
-  {docker,k8s,kubernetes,kubectl,nginx}
+  {docker,k8s,kubernetes,kubectl,nginx,cli}
                         command name
   goal                  goal of the command or config that you want to generate
 
