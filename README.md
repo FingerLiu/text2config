@@ -71,18 +71,18 @@ t2c docker "run image nginx and export port 80 to local port 8080"
 
 ## text to k8s cmd
 ```bash
-t2c k8s "scale deploy nginx to 3"
-t2c k8s -m cmd "get svc in ns which expose domain t2c.io"
+t2c -e k8s "scale deploy nginx to 3"
+t2c -e kubectl -m cmd "get svc in ns which expose domain t2c.io"
 ```
 
 ## text to k8s yaml
 ```bash
-t2c k8s --mode config "run nginx deploy and export a ingress with domain t2c.github.io"
-t2c k8s -m config "mount a nas pvc to deploy mysql in namespace test"
+t2c -e k8s --mode config "run nginx deploy and export a ingress with domain t2c.github.io"
+t2c -e k8s -m config "mount a nas pvc to deploy mysql in namespace test"
 ```
 ## text to nginx conf
 ```
-t2c nginx -c /path/to/nginx.conf add location /docs/ to vhost t2c.io redirect to t2c.github.io
+t2c -e nginx -c /path/to/nginx.conf add location /docs/ to vhost t2c.io redirect to t2c.github.io
 ```
 
 ## Thanks
