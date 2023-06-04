@@ -7,7 +7,7 @@ from text2config.pkg.openai import quest
 parser = argparse.ArgumentParser(description="""Convert natural language text to configuration files(yaml/ini/conf/json) 
 or command of various projects(docker/kubernetes/vim/nginx/postgres/terraform).
 
-Example: t2c k8s "get all pod in namespace kube-system and sort by create time"
+Example: t2c -e k8s "get all pod in namespace kube-system and sort by create time"
 """,
                                  formatter_class=RawTextHelpFormatter)
 parser.add_argument("-m", "--mode", type=str, choices=["cmd", "config"],

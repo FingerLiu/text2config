@@ -20,11 +20,11 @@ export OPENAI_API_KEY="YOUR-KEY"
 # default to 0
 export OPENAI_TEMPERATURE="0"
 
-t2c k8s "get all pod in namespace kube-system and sort by create time"
+t2c -e k8s "get all pod name ant create time in namespace kube-system and sort by create time"
 
-t2c docker "run image nginx:latest and mount ~/nginx.conf to /etc/nginx.conf, and also expose 80 to local 8080, remove it after stop"
+t2c -e docker "run image nginx:latest and mount ~/nginx.conf to /etc/nginx.conf, and also expose 80 to local 8080, remove it after stop"
 
-t2c cli "list all flies"
+t2c "list all flies"
 
 ```
 
@@ -35,22 +35,24 @@ export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_pr
 ```
 # Usage
 ```bash
-usage: t2c [-h] [-m {cmd,config}] [-c CONFIG] [-d] {docker,k8s,kubernetes,kubectl,nginx} goal
+usage: t2c [-h] [-m {cmd,config}] [--command COMMAND] [-c CONFIG] [-d] goal
 
 Convert natural language text to configuration files(yaml/ini/conf/json) 
 or command of various projects(docker/kubernetes/vim/nginx/postgres/terraform).
 
-Example: t2c k8s "get all pod in namespace kube-system and sort by create time"
+Example: t2c -e k8s "get all pod in namespace kube-system and sort by create time"
+
+t2c "list all files sort by create time"
 
 positional arguments:
-  {docker,k8s,kubernetes,kubectl,nginx,any,...}
-                        command name
   goal                  goal of the command or config that you want to generate
 
 options:
   -h, --help            show this help message and exit
   -m {cmd,config}, --mode {cmd,config}
                         generate command or config
+  --command COMMAND, -e COMMAND
+                        command name: docker, k8s, kubernetes, kubectl, nginx, any, ...
   -c CONFIG, --config CONFIG
   -d, --debug           show debug log
 
