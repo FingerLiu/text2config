@@ -43,7 +43,7 @@ or command of various projects(docker/kubernetes/vim/nginx/postgres/terraform).
 Example: t2c k8s "get all pod in namespace kube-system and sort by create time"
 
 positional arguments:
-  {docker,k8s,kubernetes,kubectl,nginx,cli}
+  {docker,k8s,kubernetes,kubectl,nginx,any,...}
                         command name
   goal                  goal of the command or config that you want to generate
 
@@ -61,7 +61,7 @@ options:
 -  text to k8s yaml
 -  text to nginx conf
 -  chain command to other commands
--  text to any command/config with predefined prompt template.
+- ✅ text to any command/config with predefined prompt template.
 -  text to custom command/config with user provide prompt template
 ## text to docker command
 ```bash

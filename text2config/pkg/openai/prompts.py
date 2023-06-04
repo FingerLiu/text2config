@@ -2,7 +2,7 @@ import pkg_resources
 from langchain.prompts import PromptTemplate
 
 # TODO use chain and tools
-__all__ = ['docker_cmd', 'k8s_cmd', 'cli_cmd', 'k8s_config', 'nginx_config']
+__all__ = ['docker_cmd', 'k8s_cmd', 'any_cmd', 'other_cmd', 'k8s_config', 'nginx_config']
 
 
 class PromptTemplateFromFile(PromptTemplate):
@@ -22,7 +22,13 @@ k8s_cmd = PromptTemplateFromFile(
     input_variables=["goal"],
     template_file=pkg_resources.resource_filename("text2config", "pkg/openai/templates/k8s-cmd.tpl")
 )
-cli_cmd = PromptTemplateFromFile(
+
+other_cmd = PromptTemplateFromFile(
+    input_variables=["cmd", "goal"],
+    template_file=pkg_resources.resource_filename("text2config", "pkg/openai/templates/other-cmd.tpl")
+)
+
+any_cmd = PromptTemplateFromFile(
     input_variables=["goal"],
     template_file=pkg_resources.resource_filename("text2config", "pkg/openai/templates/cli.tpl")
 )
